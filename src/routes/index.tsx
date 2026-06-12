@@ -129,7 +129,7 @@ function LandingPage() {
         "Alianças comerciais",
         "Abertura de novos canais"
       ],
-      image: "/mt.png",
+      image: "/mt.webp",
       position: "77% 25%",
       mobilePosition: "50% 20%",
       icon: Users
@@ -144,7 +144,7 @@ function LandingPage() {
         "Gestão emocional",
         "Alta performance executiva"
       ],
-      image: "/phc.png",
+      image: "/phc.webp",
       position: "70% 15%",
       mobilePosition: "50% 20%",
       icon: Brain
@@ -159,7 +159,7 @@ function LandingPage() {
         "Rotina estratégica",
         "Menos dependência do dono"
       ],
-      image: "/paulof.png",
+      image: "/paulof.webp",
       position: "75% 20%",
       mobilePosition: "50% 18%",
       icon: Layers
@@ -174,7 +174,7 @@ function LandingPage() {
         "Eficiência operacional",
         "Proteção da margem"
       ],
-      image: "/lemuel2.png",
+      image: "/lemuel2.webp",
       position: "62% 20%",
       mobilePosition: "50% 20%",
       icon: TrendingDown
@@ -199,9 +199,11 @@ function LandingPage() {
           {/* Imagem de Fundo Cover (Apenas Desktop - Posicionada à direita) */}
           <div className="absolute inset-0 z-0 select-none pointer-events-none hidden lg:block">
             <img
-              src="/bg.png"
+              src="/bg.webp"
               alt="Fundo Executivo"
               className="w-full h-full object-cover object-[80%_top] brightness-75 contrast-[1.05]"
+              loading="eager"
+              fetchPriority="high"
             />
             
             {/* Gradiente da esquerda para a direita: esquerda escura para leitura, centro suave, direita mais limpa */}
@@ -260,9 +262,11 @@ function LandingPage() {
                   <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#050505] via-[#050505]/60 to-transparent z-10 pointer-events-none" />
                   
                   <img
-                    src="/bg.png"
+                    src="/bg.webp"
                     alt="Fundo Executivo Mobile"
                     className="w-full min-h-[420px] h-[420px] object-cover object-[68%_top] brightness-[0.88] contrast-[1.03]"
+                    loading="eager"
+                    fetchPriority="high"
                   />
                   
                   {/* Gradiente na base da imagem para fusão com a próxima seção */}
@@ -405,6 +409,7 @@ function LandingPage() {
                         src={p.bgImage}
                         alt={p.title}
                         className="w-full h-full object-cover brightness-50 contrast-110 transition-all duration-700 group-hover:scale-105 group-hover:brightness-40"
+                        loading="lazy"
                       />
                       {/* Gradiente escuro cobrindo a imagem para garantir legibilidade */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
@@ -514,6 +519,7 @@ function LandingPage() {
                         src={m.image} 
                         alt={m.title}
                         className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.75] contrast-[1.05]"
+                        loading="lazy"
                       />
                       {/* Gradiente escuro na base da imagem para fundir com o texto */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-[#0c0c0c]/40 to-transparent" />
@@ -723,6 +729,7 @@ function LandingPage() {
               style={{
                 objectPosition: advisors[activeAdvisor].position || 'center 20%'
               }}
+              loading="lazy"
             />
 
             {/* FADE GRADIENTE LATERAL ESQUERDO: Protege o texto à esquerda sem escurecer o rosto na direita */}
@@ -853,6 +860,7 @@ function LandingPage() {
                       aspectRatio: '16 / 9',
                       objectPosition: advisors[activeAdvisor].mobilePosition || 'center top'
                     }}
+                    loading="lazy"
                   />
                 </div>
 
