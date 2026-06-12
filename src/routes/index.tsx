@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const WHATSAPP = "https://wa.me/5500000000000";
+const WHATSAPP = "https://wa.link/ythgg5";
 
 // Hook/Componente de Reveal ao Scroll
 function RevealOnScroll({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
