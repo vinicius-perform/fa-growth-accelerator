@@ -62,6 +62,12 @@ function RevealOnScroll({ children, delay = 0, className = "" }: { children: Rea
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
+    // Se for dispositivo móvel/tablet (< 1024px), revela o conteúdo imediatamente sem animação de scroll
+    if (window.innerWidth < 1024) {
+      setIsIntersecting(true);
+      return;
+    }
+
     // Fallback caso o IntersectionObserver não seja suportado no browser
     if (!('IntersectionObserver' in window)) {
       setIsIntersecting(true);
