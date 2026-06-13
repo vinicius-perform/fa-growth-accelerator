@@ -35,17 +35,17 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "FA Growth Partner — Aceleração Empresarial Premium" },
+      { title: "FA Aceleração Comercial — 6 Meses de Estruturação e Escala" },
       {
         name: "description",
         content:
-          "Programa estratégico da FA para empresários estruturarem comercial, gestão, finanças, processos e indicadores para transformar crescimento em escala sustentável.",
+          "Programa de aceleração comercial de seis meses da FA. Organize dados, comercial, finanças e processos para transformar crescimento em escala previsível.",
       },
-      { property: "og:title", content: "FA Growth Partner — Aceleração Empresarial Premium" },
+      { property: "og:title", content: "FA Aceleração Comercial — 6 Meses de Estruturação e Escala" },
       {
         property: "og:description",
         content:
-          "Pare de apagar incêndios. Comece a construir uma empresa previsível.",
+          "Pare de apagar incêndios. Participe do programa de aceleração comercial de 6 meses.",
       },
     ],
   }),
@@ -106,10 +106,18 @@ function CTAButton({ children, className = "" }: { children: React.ReactNode; cl
   );
 }
 
-function SectionLabel({ children }: { children: React.ReactNode }) {
+function SectionLabel({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return (
-    <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.03] px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] text-white/95 backdrop-blur-md shadow-glow">
-      <span className="h-1.5 w-1.5 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,1)]" />
+    <div className={`mb-6 inline-flex items-center gap-2.5 rounded-full border px-5 py-2 text-[10px] font-semibold uppercase tracking-[0.25em] backdrop-blur-md ${
+      light 
+        ? "border-black/10 bg-black/[0.02] text-black/90 shadow-none" 
+        : "border-white/10 bg-white/[0.03] text-white/95 shadow-glow"
+    }`}>
+      <span className={`h-1.5 w-1.5 rounded-full ${
+        light 
+          ? "bg-black shadow-[0_0_6px_rgba(0,0,0,0.2)]" 
+          : "bg-white shadow-[0_0_10px_rgba(255,255,255,1)]"
+      }`} />
       {children}
     </div>
   );
@@ -120,23 +128,8 @@ function LandingPage() {
 
   const advisors = [
     {
-      name: "MATHYAS",
-      area: "Networking Estratégico",
-      desc: "Especialista em construir conexões corporativas de alto valor para gerar alianças, abrir portas comerciais e acelerar oportunidades estratégicas.",
-      help: "Ajuda empresários a ampliar relacionamentos estratégicos, acessar oportunidades qualificadas e criar conexões que impulsionam o crescimento do negócio.",
-      points: [
-        "Conexões de alto valor",
-        "Alianças comerciais",
-        "Abertura de novos canais"
-      ],
-      image: "/mt.webp",
-      position: "77% 25%",
-      mobilePosition: "50% 20%",
-      icon: Users
-    },
-    {
       name: "PAULO HENRIQUE",
-      area: "Liderança & Inteligência Emocional",
+      area: "Inteligência Emocional",
       desc: "Desenvolve maturidade executiva e estabilidade estratégica para liderar equipes de alto desempenho sob pressão extrema.",
       help: "Apoia empresários a otimizarem a tomada de decisão estratégica, aprimorarem a liderança inspiradora e dominarem o controle emocional sob alta pressão.",
       points: [
@@ -151,13 +144,13 @@ function LandingPage() {
     },
     {
       name: "PAULO FILHO",
-      area: "Saída do Operacional & Delegação",
+      area: "Sair do Operacional & Delegação",
       desc: "Especialista em criar rotinas estratégicas e metodologias de delegação para libertar o fundador do dia a dia operacional.",
-      help: "Auxilia fundadores a desenharem processos de governança eficientes, capacitarem lideranças intermediárias e estruturarem o negócio para rodar de forma previsível.",
+      help: "Mentoria no formato Hotseat para desenhar processos de governança eficientes, capacitar lideranças intermediárias e estruturar o negócio para rodar de forma previsível.",
       points: [
-        "Delegação prática",
-        "Rotina estratégica",
-        "Menos dependência do dono"
+        "Hotseat: Saída do operacional",
+        "Delegação prática e rotina estratégica",
+        "Menos dependência do fundador"
       ],
       image: "/paulof.webp",
       position: "75% 20%",
@@ -168,11 +161,11 @@ function LandingPage() {
       name: "LEMUEL",
       area: "Redução de Custos Operacionais",
       desc: "Consultor especializado em identificar desperdícios invisíveis, auditar gargalos financeiros e proteger a lucratividade de grandes operações.",
-      help: "Ajuda a identificar desperdícios, reduzir custos, melhorar eficiência e proteger a lucratividade sem comprometer a qualidade operacional.",
+      help: "Ajuda a identificar desperdícios em processos, reduzir custos desnecessários, melhorar eficiência e proteger a lucratividade geral do negócio.",
       points: [
-        "Auditoria de custos",
-        "Eficiência operacional",
-        "Proteção da margem"
+        "Auditoria de custos e desperdícios",
+        "Eficiência operacional e otimização",
+        "Proteção e ganho de margem de lucro"
       ],
       image: "/lemuel2.webp",
       position: "62% 20%",
@@ -219,26 +212,26 @@ function LandingPage() {
               <div className="max-w-3xl py-12 lg:py-16">
                 
                 <RevealOnScroll delay={100}>
-                  <SectionLabel>PROGRAMA DE ACELERAÇÃO EMPRESARIAL</SectionLabel>
+                  <SectionLabel>PROGRAMA DE SEIS MESES</SectionLabel>
                 </RevealOnScroll>
                 
                 <RevealOnScroll delay={200}>
                   <h1 className="text-4xl font-extrabold leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-[4rem] tracking-tight uppercase">
-                    PARE DE APAGAR INCÊNDIOS.<br />
-                    <span className="text-gradient-silver text-shine block mt-2">COMECE A CONSTRUIR UMA EMPRESA PREVISÍVEL.</span>
+                    Programa de aceleração comercial<br />
+                    <span className="text-gradient-silver text-shine block mt-2">por seis meses</span>
                   </h1>
                 </RevealOnScroll>
 
                 <RevealOnScroll delay={300}>
                   <p className="mt-8 max-w-xl text-base leading-relaxed text-[#bfbfbf] md:text-xl">
-                    A FA ajuda empresários a organizar comercial, gestão, finanças, processos e indicadores para transformar crescimento em escala sustentável.
+                    Programa estratégico de seis meses focado em estruturar canais de vendas, inteligência de dados, processos comerciais e ritmo de execução.
                   </p>
                 </RevealOnScroll>
 
                 <RevealOnScroll delay={400}>
                   <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
                     <div className="flex flex-col items-start gap-2">
-                      <CTAButton>QUERO ESTRUTURAR MINHA EMPRESA</CTAButton>
+                      <CTAButton>QUERO ACELERAR MINHAS VENDAS</CTAButton>
                       <p className="text-[11px] text-[#8c8c8c] tracking-wide mt-1">
                         * Aplicação estratégica para empresas que já possuem operação em funcionamento.
                       </p>
@@ -278,90 +271,97 @@ function LandingPage() {
         </section>
 
         {/* SEÇÃO DE CONTEXTO */}
-        <section className="relative py-24 md:py-32 border-b border-white/[0.03] bg-[#080808]/40">
+        <section className="relative py-24 md:py-32 border-b border-black/[0.06] bg-white">
           <div className="mx-auto max-w-7xl px-6">
             
             <div className="mx-auto max-w-5xl text-center mb-16">
               <RevealOnScroll delay={100}>
-                <SectionLabel>O CONTEXTO</SectionLabel>
+                <SectionLabel light>O CONTEXTO</SectionLabel>
               </RevealOnScroll>
               <RevealOnScroll delay={200}>
-                <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-white tracking-tight">
-                  O PROBLEMA NÃO É VENDER MAIS.
+                <h2 className="text-xl sm:text-3xl md:text-5xl font-extrabold leading-tight text-neutral-900 tracking-tight">
+                  O PROBLEMA NÃO É APENAS VENDER MAIS.
                   <br className="hidden md:block" />
-                  <span className="text-gradient-silver">É CRESCER SEM PERDER O CONTROLE.</span>
+                  <span className="bg-gradient-to-r from-neutral-950 via-neutral-800 to-neutral-600 bg-clip-text text-transparent block mt-2">É ESTRUTURAR A OPERAÇÃO E ESCALAR AS VENDAS.</span>
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll delay={300}>
-                <p className="mx-auto mt-6 max-w-2xl text-base text-[#bfbfbf] md:text-xl leading-relaxed">
-                  Muitas empresas conseguem gerar demanda, mas continuam enfrentando problemas de organização, acompanhamento, gestão financeira, produtividade e execução.
+                <p className="mx-auto mt-6 max-w-2xl text-base text-neutral-600 md:text-xl leading-relaxed">
+                  Muitas empresas falham em crescer por falta de processos comerciais bem definidos, inteligência de dados nas decisões e ritmo de execução.
                 </p>
               </RevealOnScroll>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  title: "Desorganização Operacional",
-                  desc: "A empresa cresce, mas a operação fica confusa, dependendo integralmente do dono para funcionar no dia a dia.",
-                  metric: "Sobrecarga"
-                },
-                {
-                  title: "Falta de Métricas Claras",
-                  desc: "Decisões estratégicas tomadas no instinto, sem visibilidade de margem, custo de aquisição e retorno real.",
-                  metric: "Sem Direção"
-                },
-                {
-                  title: "Time Sem Alinhamento",
-                  desc: "Profissionais sem metas claras, sem indicadores de performance e sem processos padronizados a seguir.",
-                  metric: "Desalinhamento"
-                },
-                {
                   title: "Comercial Instável",
-                  desc: "Vendas ocorrendo de forma imprevisível. Sem rotinas comerciais claras e playbook de conversão replicável.",
-                  metric: "Imprevisibilidade"
+                  desc: "Vendas ocorrendo de forma imprevisível. Falta de rotinas comerciais claras e um playbook de conversão replicável.",
+                  metric: "Imprevisibilidade",
+                  icon: TrendingDown
+                },
+                {
+                  title: "Gargalos de Gestão",
+                  desc: "A operação comercial não acompanha a demanda e depende integralmente do fundador para funcionar e decidir.",
+                  metric: "Sobrecarga",
+                  icon: Layers
+                },
+                {
+                  title: "Tomada de Decisão sem Dados",
+                  desc: "Decisões cruciais tomadas com base em percepções, sem leitura clara de DRE/DFC, margens de lucro ou custos.",
+                  metric: "Sem Direção",
+                  icon: BarChart3
                 }
-              ].map((c, idx) => (
-                <RevealOnScroll key={c.title} delay={idx * 100}>
-                  <div className="card-premium rounded-2xl p-8 h-full flex flex-col justify-between group">
-                    <div>
-                      {/* Efeito aço escovado interno sutil */}
-                      <div className="absolute inset-0 bg-steel-texture opacity-5 pointer-events-none" />
+              ].map((c, idx) => {
+                const IconComponent = c.icon;
+                return (
+                  <RevealOnScroll key={c.title} delay={idx * 100}>
+                    <div className="relative rounded-3xl p-8 h-full flex flex-col justify-between group border border-neutral-200/60 bg-gradient-to-b from-white to-neutral-50/70 hover:from-white hover:to-white hover:border-neutral-900 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.04)] hover:-translate-y-1 overflow-hidden">
+                      {/* Efeito aço escovado sutilíssimo de fundo */}
+                      <div className="absolute inset-0 bg-steel-texture opacity-[0.02] pointer-events-none" />
                       
-                      <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80 transition-colors duration-300 group-hover:border-white/30 group-hover:text-white">
-                        <TrendingDown className="h-5 w-5" />
+                      <div>
+                        {/* Container do ícone estilo moeda metálica fosca */}
+                        <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-2xl border border-neutral-200 bg-white text-neutral-800 shadow-[0_4px_12px_rgba(0,0,0,0.03)] transition-all duration-500 group-hover:border-neutral-950 group-hover:bg-neutral-950 group-hover:text-white group-hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+                          <IconComponent className="h-5 w-5 transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-neutral-900 tracking-wide transition-colors duration-300 group-hover:text-black">{c.title}</h3>
+                        <p className="mt-4 text-sm leading-relaxed text-neutral-500 group-hover:text-neutral-700 transition-colors duration-300">{c.desc}</p>
                       </div>
                       
-                      <h3 className="text-lg font-bold text-white tracking-wide">{c.title}</h3>
-                      <p className="mt-3 text-sm leading-relaxed text-[#a6a6a6]">{c.desc}</p>
+                      {/* Divisor e métrica estilo clean de alta costura */}
+                      <div className="mt-8 pt-6 border-t border-neutral-100 flex items-center justify-between">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 group-hover:text-neutral-900 transition-colors duration-300">
+                          {c.metric}
+                        </span>
+                        <div className="h-1.5 w-1.5 rounded-full bg-neutral-300 group-hover:bg-neutral-950 transition-colors duration-300" />
+                      </div>
                     </div>
-                    <div className="mt-8 text-[11px] font-bold uppercase tracking-widest text-white/45 group-hover:text-white/70 transition-colors">
-                      {c.metric}
-                    </div>
-                  </div>
-                </RevealOnScroll>
-              ))}
+                  </RevealOnScroll>
+                );
+              })}
             </div>
 
           </div>
         </section>
 
-        {/* SEÇÃO DOS PILARES (Estilo Palestrantes da Referência) */}
+        {/* SEÇÃO ENTREGÁVEIS (O Programa de 6 Meses) */}
         <section className="relative py-24 md:py-32 border-b border-white/[0.03]">
           <div className="mx-auto max-w-7xl px-6">
             
             <div className="mx-auto max-w-3xl text-center mb-20">
               <RevealOnScroll delay={100}>
-                <SectionLabel>PILARES DE ACELERAÇÃO</SectionLabel>
+                <SectionLabel>ENTREGÁVEIS DO PROGRAMA</SectionLabel>
               </RevealOnScroll>
               <RevealOnScroll delay={200}>
-                <h2 className="text-3xl font-extrabold text-white md:text-5xl tracking-tight">
-                  AS BASES DA <span className="text-gradient-silver">ESCALA E GOVERNANÇA</span>
+                <h2 className="text-3xl font-extrabold text-white md:text-5xl tracking-tight uppercase">
+                  O QUE VOCÊ VAI <span className="text-gradient-silver">RECEBER NA ACELERAÇÃO</span>
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll delay={300}>
                 <p className="mt-5 text-base text-[#bfbfbf] md:text-xl leading-relaxed">
-                  Não somos uma agência de marketing. Desenvolvemos uma estrutura completa de aceleração empresarial através de 6 pilares essenciais.
+                  Um escopo completo de reestruturação comercial, inteligência financeira e ritmo de gestão executiva durante seis meses.
                 </p>
               </RevealOnScroll>
             </div>
@@ -369,242 +369,111 @@ function LandingPage() {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  title: "COMERCIAL",
-                  desc: "Estruturação do processo comercial e aumento da previsibilidade de vendas.",
-                  bgImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=800&auto=format&fit=crop"
-                },
-                {
-                  title: "GESTÃO",
-                  desc: "Clareza total sobre metas, indicadores, governança e prioridades estratégicas.",
-                  bgImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
-                },
-                {
-                  title: "PROCESSOS",
-                  desc: "Mapeamento, padronização e delegação de rotinas para máxima eficiência operacional.",
-                  bgImage: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=800&auto=format&fit=crop"
-                },
-                {
-                  title: "FINANÇAS",
-                  desc: "Controle financeiro rígido, análise de margens, DRE, DFC e visão estratégica de caixa.",
-                  bgImage: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=800&auto=format&fit=crop"
-                },
-                {
-                  title: "DADOS",
-                  desc: "Tomada de decisão cirúrgica baseada em dashboards e indicadores confiáveis.",
-                  bgImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
-                },
-                {
-                  title: "EXPANSÃO",
-                  desc: "Estratégias avançadas para crescimento sustentável sem desorganização.",
-                  bgImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop"
-                }
-              ].map((p, idx) => (
-                <RevealOnScroll key={p.title} delay={idx * 100}>
-                  {/* Card com Moldura Metálica, Efeito Glow e Foto de Fundo Premium */}
-                  <div className="card-premium rounded-2xl overflow-hidden group aspect-[4/5] flex flex-col justify-end p-8 border border-white/10 relative">
-                    
-                    {/* Imagem de Fundo (Grayscale) */}
-                    <div className="absolute inset-0 z-0 overflow-hidden">
-                      <img
-                        src={p.bgImage}
-                        alt={p.title}
-                        className="w-full h-full object-cover brightness-50 contrast-110 transition-all duration-700 group-hover:scale-105 group-hover:brightness-40"
-                        loading="lazy"
-                      />
-                      {/* Gradiente escuro cobrindo a imagem para garantir legibilidade */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
-                    </div>
-
-                    {/* Glow prateado sutil no hover */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/[0.03] to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none" />
-
-                    {/* Conteúdo do Card */}
-                    <div className="relative z-10">
-                      <div className="mb-4 text-[10px] font-black uppercase tracking-[0.3em] text-[#bfbfbf] bg-white/5 border border-white/10 px-3 py-1.5 rounded-md inline-block">
-                        PIlar 0{idx + 1}
-                      </div>
-                      <h3 className="text-2xl font-extrabold text-white tracking-wide">{p.title}</h3>
-                      <p className="mt-3 text-sm text-[#bfbfbf] leading-relaxed transition-all duration-300 group-hover:text-white">
-                        {p.desc}
-                      </p>
-                    </div>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
-        {/* SEÇÃO METODOLOGIA (Grade premium) */}
-        <section className="relative py-24 md:py-32 border-b border-white/[0.03] bg-[#080808]/20">
-          <div className="mx-auto max-w-7xl px-6">
-            
-            <div className="mx-auto max-w-4xl text-center mb-20">
-              <RevealOnScroll delay={100}>
-                <SectionLabel>METODOLOGIA PROPRIETÁRIA</SectionLabel>
-              </RevealOnScroll>
-              <RevealOnScroll delay={200}>
-                <h2 className="text-3xl font-extrabold text-white md:text-5xl tracking-tight uppercase">
-                  A METODOLOGIA QUE <span className="text-gradient-silver">ORGANIZA O CRESCIMENTO</span>
-                </h2>
-              </RevealOnScroll>
-              <RevealOnScroll delay={300}>
-                <p className="mx-auto mt-5 max-w-3xl text-base text-[#bfbfbf] md:text-xl leading-relaxed">
-                  Um processo estruturado para diagnosticar, organizar e acelerar empresas consolidadas com mais clareza, controle e previsibilidade.
-                </p>
-              </RevealOnScroll>
-            </div>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {[
-                {
-                  step: "01",
                   title: "Diagnóstico Estratégico",
-                  desc: "Mapeamento completo do cenário atual, rotinas e gargalos de produtividade e gestão.",
-                  image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop"
+                  desc: "Mapeamento completo do perfil do projeto, identificando falhas de processo, gargalos e oportunidades imediatas de escala.",
+                  icon: Target
                 },
                 {
-                  step: "02",
-                  title: "Aceleração Comercial",
-                  desc: "Estruturação e parametrização do pipeline comercial com foco em previsibilidade e rotina de vendas.",
-                  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop"
+                  title: "Análise de Geração de Demanda",
+                  desc: "Auditoria analítica sobre a captação de clientes através de canais de tráfego pago e estratégias orgânicas de conversão.",
+                  icon: TrendingUp
                 },
                 {
-                  step: "03",
-                  title: "Gestão de Dados",
-                  desc: "Centralização e organização dos indicadores críticos em dashboards automatizados.",
-                  image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
-                },
-                {
-                  step: "04",
                   title: "Estruturação Digital",
-                  desc: "Ativação de canais de captação digital: Google Meu Negócio, landing pages profissionais e ativos estratégicos.",
-                  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop"
+                  desc: "Construção de ativos essenciais para conversão de vendas: Google Meu Negócio otimizado, landing page profissional e links estratégicos na bio.",
+                  icon: Globe
                 },
                 {
-                  step: "05",
-                  title: "Reuniões Semanais OKRs",
-                  desc: "Cadência fixa semanal para monitorar metas e garantir foco na execução.",
-                  image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=600&auto=format&fit=crop"
+                  title: "Gestão de Dados",
+                  desc: "Centralização e organização de todas as métricas comerciais críticas do negócio em dashboards automatizados de fácil leitura.",
+                  icon: Database
                 },
                 {
-                  step: "06",
-                  title: "Análise Financeira",
-                  desc: "Reestruturação do fluxo de caixa e leitura analítica de DRE e DFC.",
-                  image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=600&auto=format&fit=crop"
+                  title: "Análise de DRE e DFC",
+                  desc: "Reestruturação e leitura analítica do Demonstrativo de Resultados (DRE) e Demonstrativo de Fluxo de Caixa (DFC) para proteger as margens.",
+                  icon: LineChart
                 },
                 {
-                  step: "07",
-                  title: "Modelo Operacional",
-                  desc: "Desenho da arquitetura de processos da empresa, rotinas de delegação e organograma.",
-                  image: "https://images.unsplash.com/photo-1531538606174-0f90ff5dce83?q=80&w=600&auto=format&fit=crop"
+                  title: "Modelo Operacional Completo",
+                  desc: "Desenho da arquitetura de processos comerciais e fluxos de trabalho operacionais para dar escala e previsibilidade à rotina do time.",
+                  icon: Briefcase
                 },
                 {
-                  step: "08",
-                  title: "Plano de Escala",
-                  desc: "Direcionamento estratégico detalhado para alavancar crescimento sem desorganizar as bases.",
-                  image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop"
+                  title: "Reuniões Semanais de OKR",
+                  desc: "Cadência fixa semanal de alinhamento estratégico e acompanhamento de metas (Objectives and Key Results) diretamente com o Stakeholder.",
+                  icon: CalendarCheck
                 }
-              ].map((m, idx) => (
-                <RevealOnScroll key={m.title} delay={idx * 80}>
-                  <div className="group relative flex flex-col h-[390px] rounded-xl overflow-hidden border border-white/[0.06] bg-[#0c0c0c]/80 backdrop-blur-md transition-all duration-500 hover:border-white/15 hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.6)]">
-                    
-                    {/* Linha superior de luz metálica prateada/azulada */}
-                    <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 via-blue-400/15 to-transparent opacity-80 transition-all duration-500 group-hover:via-white/60 group-hover:opacity-100" />
-                    
-                    {/* Área Visual Superior (Imagem com overlay) */}
-                    <div className="relative h-[155px] w-full overflow-hidden select-none">
-                      <img 
-                        src={m.image} 
-                        alt={m.title}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.75] contrast-[1.05]"
-                        loading="lazy"
-                      />
-                      {/* Gradiente escuro na base da imagem para fundir com o texto */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-[#0c0c0c]/40 to-transparent" />
-                      {/* Overlay sutil */}
-                      <div className="absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/0" />
-                    </div>
-                    
-                    {/* Conteúdo inferior */}
-                    <div className="relative flex-1 flex flex-col justify-between p-5">
+              ].map((entregavel, idx) => {
+                const IconComponent = entregavel.icon;
+                return (
+                  <RevealOnScroll key={entregavel.title} delay={idx * 80}>
+                    <div className="card-premium rounded-2xl p-8 h-full flex flex-col justify-between group relative overflow-hidden">
+                      <div className="absolute inset-0 bg-steel-texture opacity-5 pointer-events-none" />
                       <div>
-                        {/* Etiqueta da Fase */}
-                        <span className="inline-block text-[10px] font-bold tracking-[0.2em] uppercase text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full mb-3 transition-all duration-300 group-hover:text-white group-hover:border-white/20 group-hover:bg-white/10">
-                          FASE {m.step}
-                        </span>
-                        
-                        {/* Título */}
-                        <h3 className="text-sm md:text-base font-extrabold text-white tracking-wide transition-colors duration-300 group-hover:text-white">
-                          {m.title}
-                        </h3>
-                        
-                        {/* Descrição */}
-                        <p className="mt-2 text-xs leading-relaxed text-[#9e9e9e] transition-colors duration-300 group-hover:text-[#bfbfbf]">
-                          {m.desc}
-                        </p>
+                        <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/80 transition-colors duration-300 group-hover:border-white/30 group-hover:text-white">
+                          <IconComponent className="h-5 w-5" />
+                        </div>
+                        <h3 className="text-lg font-bold text-white tracking-wide">{entregavel.title}</h3>
+                        <p className="mt-3 text-sm leading-relaxed text-[#a6a6a6] group-hover:text-[#bfbfbf] transition-colors">{entregavel.desc}</p>
                       </div>
-                      
-                      {/* Número Discreto no Canto Inferior */}
-                      <div className="flex justify-end items-end select-none">
-                        <span className="font-mono text-3xl font-black tracking-tighter text-white/[0.03] transition-all duration-500 group-hover:text-white/[0.08] group-hover:scale-105">
-                          {m.step}
-                        </span>
+                      <div className="mt-8 text-[11px] font-bold uppercase tracking-widest text-white/20 group-hover:text-white/45 transition-colors">
+                        ENTREGÁVEL 0{idx + 1}
                       </div>
                     </div>
-                  </div>
-                </RevealOnScroll>
-              ))}
+                  </RevealOnScroll>
+                );
+              })}
             </div>
 
           </div>
         </section>
 
         {/* SEÇÃO DE TRANSFORMAÇÃO (Antes vs Depois) */}
-        <section className="relative py-24 md:py-32 border-b border-white/[0.03]">
+        <section className="relative py-24 md:py-32 border-b border-black/[0.06] bg-white">
           <div className="mx-auto max-w-7xl px-6">
             
             <div className="mx-auto max-w-3xl text-center mb-20">
               <RevealOnScroll delay={100}>
-                <SectionLabel>A EVOLUÇÃO ESTRATÉGICA</SectionLabel>
+                <SectionLabel light>A EVOLUÇÃO ESTRATÉGICA</SectionLabel>
               </RevealOnScroll>
               <RevealOnScroll delay={200}>
-                <h2 className="text-3xl font-extrabold text-white md:text-5xl tracking-tight">
+                <h2 className="text-3xl font-extrabold text-neutral-900 md:text-5xl tracking-tight">
                   MUDANÇA DE PATAMAR:<br />
-                  <span className="text-gradient-silver">DA OPERAÇÃO CONFUSA AO CRESCIMENTO PREVISÍVEL</span>
+                  <span className="bg-gradient-to-r from-neutral-950 via-neutral-800 to-neutral-600 bg-clip-text text-transparent block mt-2">DA OPERAÇÃO CONFUSA AO CRESCIMENTO PREVISÍVEL</span>
                 </h2>
               </RevealOnScroll>
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 relative">
               {/* Efeito de separação vertical no desktop */}
-              <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[1px] bg-white/10 -translate-x-1/2" />
+              <div className="hidden md:block absolute left-1/2 top-10 bottom-10 w-[1px] bg-black/10 -translate-x-1/2" />
               
               {/* Bloco ANTES */}
               <RevealOnScroll delay={100}>
-                <div className="rounded-2xl border border-white/5 bg-[#080808]/40 p-8 md:p-12 relative overflow-hidden h-full">
-                  <div className="absolute inset-0 bg-steel-texture opacity-5 pointer-events-none" />
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-white/50">
+                <div className="rounded-3xl border border-red-100/50 bg-red-50/30 p-8 md:p-12 relative overflow-hidden h-full transition-all duration-500 hover:bg-red-50/40 hover:border-red-200/50 hover:shadow-none">
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-red-50 border border-red-100 text-red-500 shadow-sm">
                       <XCircle className="h-5 w-5" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-[0.25em] text-[#8c8c8c]">Cenário Atual (Gargalo)</span>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 block">Diagnóstico</span>
+                      <span className="text-xs font-extrabold uppercase tracking-[0.1em] text-neutral-800">Cenário Atual (Gargalos)</span>
+                    </div>
                   </div>
                   
                   <ul className="space-y-6">
                     {[
-                      { t: "Empresa dependente do dono", d: "Se você parar de trabalhar ou tirar férias, as decisões travam e as vendas despencam." },
-                      { t: "Falta de indicadores estratégicos", t1: "Decisões cruciais tomadas com base em percepções ou 'feeling', sem planilhas de DRE ou dashboards de conversão." },
-                      { t: "Equipe desalinhada e sem metas", t1: "O time executa tarefas diárias mas não possui clareza de performance, metas de conversão ou OKRs." },
-                      { t: "Processos confusos", t1: "A ausência de manuais, playbooks e fluxos faz com que cada colaborador execute as tarefas à sua maneira." },
-                      { t: "Crescimento desorganizado", t1: "Gerar faturamento maior passa a significar mais estresse, mais contratações erradas e menos margem de lucro." }
+                      { t: "Comercial imprevisível", d: "Sem processos claros de atração ou playbooks estruturados de vendas." },
+                      { t: "Decisões no 'feeling'", d: "Ausência de métricas comerciais e dados consolidados sobre a operação." },
+                      { t: "Time desalinhado", d: "Colaboradores trabalhando isoladamente, sem metas claras de performance e OKRs." },
+                      { t: "Processos informais", d: "Ausência de padrões operacionais, fazendo com que cada um atue à sua maneira." },
+                      { t: "Crescimento caótico", d: "Crescer faturamento significa maior sobrecarga, estresse e queda de margem." }
                     ].map((item, idx) => (
                       <li key={idx} className="flex gap-4">
-                        <div className="mt-1 h-2 w-2 rounded-full bg-white/20 shrink-0" />
+                        <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-red-400/60 shrink-0" />
                         <div>
-                          <h4 className="text-base font-bold text-[#bfbfbf]">{item.t}</h4>
-                          <p className="mt-1 text-xs text-[#8c8c8c] leading-relaxed">{item.d || item.t1}</p>
+                          <h4 className="text-base font-bold text-neutral-800">{item.t}</h4>
+                          <p className="mt-1 text-xs text-neutral-500 leading-relaxed">{item.d}</p>
                         </div>
                       </li>
                     ))}
@@ -614,31 +483,36 @@ function LandingPage() {
 
               {/* Bloco DEPOIS */}
               <RevealOnScroll delay={200}>
-                <div className="rounded-2xl border border-white/15 bg-white/[0.02] p-8 md:p-12 relative overflow-hidden shadow-glow h-full">
-                  {/* Glow interno prateado */}
-                  <div className="absolute top-0 right-0 h-32 w-32 rounded-full bg-white/[0.02] blur-xl pointer-events-none" />
-                  <div className="absolute inset-0 bg-steel-texture opacity-5 pointer-events-none" />
+                <div className="rounded-3xl border border-neutral-300/80 bg-gradient-to-b from-white to-neutral-50/50 p-8 md:p-12 relative overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.06)] h-full transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] hover:-translate-y-1.5 md:scale-[1.02] hover:md:scale-[1.03]">
+                  {/* Luz metálica sutil no topo do card */}
+                  <div className="absolute top-0 inset-x-0 h-[2.5px] bg-gradient-to-r from-transparent via-neutral-500/40 to-transparent" />
                   
-                  <div className="flex items-center gap-3 mb-8">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 border border-white/20 text-white shadow-glow">
+                  {/* Efeito aço escovado sutilíssimo de fundo */}
+                  <div className="absolute inset-0 bg-steel-texture opacity-[0.03] pointer-events-none" />
+                  
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-neutral-900 border border-neutral-950 text-white shadow-md">
                       <CheckCircle2 className="h-5 w-5" />
                     </div>
-                    <span className="text-xs font-bold uppercase tracking-[0.25em] text-white">Nova Realidade (Aceleração)</span>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-neutral-400 block">Metodologia FA</span>
+                      <span className="text-xs font-extrabold uppercase tracking-[0.1em] text-neutral-900">Nova Realidade (Aceleração)</span>
+                    </div>
                   </div>
 
                   <ul className="space-y-6">
                     {[
-                      { t: "Gestão baseada em dados", d: "Decisões assertivas apoiadas em DRE, DFC e dashboards. Otimização de margens e controle completo de custos." },
-                      { t: "Comercial previsível e playbook estruturado", t1: "Rotina comercial com metas de prospecção diária, scripts validados e controle completo do pipeline de vendas." },
-                      { t: "Indicadores e metas claras para a equipe", t1: "Reuniões semanais de OKRs e métricas de desempenho individuais que engajam o time na execução." },
-                      { t: "Operação organizada e escalável", t1: "Padronização total de processos cruciais. Cada profissional sabe exatamente o que executar e quando." },
-                      { t: "Crescimento previsível e sustentável", t1: "Crescer faturamento mantendo a governança, a margem de lucro e a liberdade de tempo do fundador." }
+                      { t: "Máquina previsível de vendas", d: "Processo comercial parametrizado, com playbook validado e metas claras." },
+                      { t: "Decisões guiadas por dados", d: "Leitura estratégica de DRE/DFC e dashboards de conversão integrados." },
+                      { t: "Foco em execução semanal", d: "Alinhamentos de OKRs e acompanhamento de metas diretamente com o Stakeholder." },
+                      { t: "Modelo Operacional estruturado", d: "Processos padronizados e rotinas claras de governança e delegação." },
+                      { t: "Escala comercial com lucro", d: "Crescimento previsível de receita protegendo a margem e o caixa do negócio." }
                     ].map((item, idx) => (
                       <li key={idx} className="flex gap-4">
-                        <div className="mt-1 h-2 w-2 rounded-full bg-white shrink-0 shadow-[0_0_8px_rgba(255,255,255,1)]" />
+                        <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-neutral-800 shrink-0 shadow-[0_0_8px_rgba(0,0,0,0.1)]" />
                         <div>
-                          <h4 className="text-base font-extrabold text-white">{item.t}</h4>
-                          <p className="mt-1 text-xs text-[#bfbfbf] leading-relaxed">{item.d || item.t1}</p>
+                          <h4 className="text-base font-extrabold text-neutral-900">{item.t}</h4>
+                          <p className="mt-1 text-xs text-neutral-600 leading-relaxed">{item.d}</p>
                         </div>
                       </li>
                     ))}
@@ -650,68 +524,11 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* SEÇÃO DIFERENCIAIS (3 Grandes Cards) */}
-        <section className="relative py-24 md:py-32 border-b border-white/[0.03] bg-[#080808]/40">
-          <div className="mx-auto max-w-7xl px-6">
-            
-            <div className="mx-auto max-w-3xl text-center mb-20">
-              <RevealOnScroll delay={100}>
-                <SectionLabel>DIFERENCIAIS EXCLUSIVOS</SectionLabel>
-              </RevealOnScroll>
-              <RevealOnScroll delay={200}>
-                <h2 className="text-3xl font-extrabold text-white md:text-5xl tracking-tight">
-                  CONSTRUÍDO PARA <span className="text-gradient-silver">GERAR VALOR REAL</span>
-                </h2>
-              </RevealOnScroll>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-3">
-              {[
-                {
-                  title: "CLAREZA",
-                  desc: "Transforme informações dispersas e dados incompletos em decisões de negócio cirúrgicas. Veja a empresa de cima para baixo.",
-                  detail: "Governança"
-                },
-                {
-                  title: "PREVISIBILIDADE",
-                  desc: "Entenda exatamente de onde vem cada cliente e quais canais geram a melhor margem de lucro. Sem surpresas no caixa.",
-                  detail: "Finanças & Vendas"
-                },
-                {
-                  title: "ESCALA",
-                  desc: "Prepare as fundações da sua empresa para multiplicar o volume operacional sem aumentar a desorganização e a estafa.",
-                  detail: "Processos"
-                }
-              ].map((d, idx) => (
-                <RevealOnScroll key={d.title} delay={idx * 150}>
-                  <div className="card-premium rounded-2xl p-10 h-full flex flex-col justify-between relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-steel-texture opacity-10 pointer-events-none" />
-                    <div>
-                      <div className="mb-8 text-xs font-mono text-[#8c8c8c] border-b border-white/10 pb-4">
-                        DIFERENCIAL // 0{idx + 1}
-                      </div>
-                      <h3 className="text-3xl font-extrabold text-white tracking-wide">{d.title}</h3>
-                      <p className="mt-4 text-sm leading-relaxed text-[#a6a6a6] group-hover:text-[#f2f2f2] transition-colors">
-                        {d.desc}
-                      </p>
-                    </div>
-                    <div className="mt-10 flex justify-between items-center">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/50">{d.detail}</span>
-                      <ArrowRight className="h-4 w-4 text-white/30 transition-all duration-300 group-hover:text-white group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                </RevealOnScroll>
-              ))}
-            </div>
-
-          </div>
-        </section>
-
         {/* SEÇÃO O CONSELHO FA (ESTILO BOARD EXECUTIVO INTEGRADO - REFERÊNCIA ABSOLUTA) */}
         <section className="relative py-28 md:py-36 border-b border-white/[0.03] bg-[#050505] overflow-hidden">
           
           {/* FOTO DO CONSELHEIRO INTEGRADA AO FUNDO (Sem Colunas / Sem Moldura) */}
-          <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[55%] z-0 pointer-events-none select-none hidden lg:block">
+          <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[46%] xl:w-[50%] 2xl:w-[55%] z-0 pointer-events-none select-none hidden lg:block">
             
             {/* Letra/Monograma Gigante de Profundidade (Atrás da pessoa, quase invisível) */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 text-white/[0.015] font-black text-[25rem] md:text-[38rem] select-none pointer-events-none leading-none z-0 font-display">
@@ -752,11 +569,19 @@ function LandingPage() {
           <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
             
             {/* Header da Seção Premium Simplificado */}
-            <div className="mx-auto max-w-5xl text-center mb-20 md:mb-28 relative z-30">
+            <div className="mx-auto lg:mx-0 max-w-5xl lg:max-w-[48%] text-center lg:text-left mb-10 md:mb-16 relative z-30">
               <RevealOnScroll delay={100}>
+                <SectionLabel>ENTREGAS ADICIONAIS</SectionLabel>
+              </RevealOnScroll>
+              <RevealOnScroll delay={200}>
                 <h2 className="text-4xl font-extrabold md:text-6xl tracking-tight uppercase text-gradient-silver text-shine">
-                  O CONSELHO
+                  BÔNUS EXCLUSIVOS
                 </h2>
+              </RevealOnScroll>
+              <RevealOnScroll delay={300}>
+                <p className="mx-auto lg:mx-0 mt-4 max-w-xl text-xs md:text-sm text-[#bfbfbf] leading-relaxed">
+                  Além do escopo principal de seis meses, você recebe o direcionamento estratégico dos sócios especialistas da FA.
+                </p>
               </RevealOnScroll>
             </div>
 
@@ -766,7 +591,7 @@ function LandingPage() {
               {/* Setas Flutuantes nas Extremidades com Borda Fina e Glow Suave */}
               <button
                 onClick={() => setActiveAdvisor((prev) => (prev === 0 ? advisors.length - 1 : prev - 1))}
-                className="absolute left-[-20px] md:left-[-65px] top-[220px] md:top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
+                className="hidden md:flex absolute left-[-65px] top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
                 aria-label="Anterior"
               >
                 <ArrowLeft className="h-4.5 w-4.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
@@ -774,7 +599,7 @@ function LandingPage() {
               
               <button
                 onClick={() => setActiveAdvisor((prev) => (prev === advisors.length - 1 ? 0 : prev + 1))}
-                className="absolute right-[-20px] md:right-[-65px] top-[220px] md:top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
+                className="hidden md:flex absolute right-[-65px] top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
                 aria-label="Próximo"
               >
                 <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-0.5" />
@@ -803,7 +628,7 @@ function LandingPage() {
                   {/* Apresentação da Expertise (Selo de Autoridade) */}
                   <div className="mb-6">
                     <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-2">
-                      Área de Expertise
+                      Tema do Bônus
                     </div>
                     <div className="flex flex-wrap items-center gap-3">
                       <span className="inline-flex items-center gap-2.5 text-[10px] md:text-[11px] font-extrabold uppercase tracking-[0.18em] text-white border border-white/15 rounded-full px-5 py-2.5 bg-white/[0.03] shadow-[0_0_20px_rgba(255,255,255,0.03)] backdrop-blur-md">
@@ -890,7 +715,7 @@ function LandingPage() {
                 <div className="flex items-center gap-6 justify-center w-full max-w-2xl mx-auto mt-2">
                   <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
                   <p className="text-xs md:text-sm text-white/40 tracking-wide text-center shrink-0">
-                    “Cada conselheiro entra como apoio estratégico em uma dor específica do empresário.”
+                    “Cada bônus foi desenhado para atuar em uma alavanca crítica de gestão, eficiência e estabilidade executiva.”
                   </p>
                   <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
                 </div>
@@ -931,7 +756,7 @@ function LandingPage() {
                   {/* Efeito aço escovado */}
                   <div className="absolute inset-0 bg-steel-texture opacity-10 pointer-events-none" />
                   
-                  <div className="text-xs font-bold uppercase tracking-[0.3em] text-[#a6a6a6] mb-3">Aceleração Estratégica Individual</div>
+                  <div className="text-xs font-bold uppercase tracking-[0.3em] text-[#a6a6a6] mb-3">Aceleração Comercial Premium — 6 Meses</div>
                   
                   <div className="text-5xl font-black leading-none text-white md:text-7xl tracking-tighter text-shine">
                     6x de R$ 5.000
@@ -946,7 +771,7 @@ function LandingPage() {
 
             <RevealOnScroll delay={400}>
               <p className="mx-auto max-w-2xl text-base text-[#bfbfbf] md:text-lg leading-relaxed mb-10">
-                Empresas mais organizadas tomam melhores decisões, retêm melhores talentos e crescem com mais consistência e lucro.
+                Uma operação comercial previsível toma melhores decisões de vendas, atrai e retém melhores talentos e acelera resultados reais.
               </p>
             </RevealOnScroll>
 
@@ -983,24 +808,24 @@ function LandingPage() {
               <Accordion type="single" collapsible className="space-y-4">
                 {[
                   {
-                    q: "Para quem é o Programa de Aceleração da FA?",
-                    a: "O programa é desenhado especificamente para fundadores, sócios e diretores de empresas que já possuem operação ativa e faturamento consolidado, mas sofrem com a falta de processos padronizados, desorganização no comercial, ausência de leitura financeira (DRE/DFC) ou excesso de dependência do fundador no operacional."
+                    q: "Para quem é o Programa de Aceleração Comercial?",
+                    a: "O programa é desenhado especificamente para fundadores, sócios e diretores de empresas que já possuem faturamento ativo, mas sofrem com comercial instável, falta de processos de vendas padronizados, ausência de leitura financeira (DRE/DFC) ou excesso de dependência do fundador nas decisões comerciais."
                   },
                   {
                     q: "A FA é uma agência de marketing ou consultoria de tráfego?",
-                    a: "Não. Somos uma aceleradora estratégica de negócios. Nosso foco está em estruturar as fundações do seu negócio (Processos, Gestão, Governança, Comercial e Finanças) para garantir que a sua operação esteja pronta para escalar com consistência, governança e previsibilidade."
+                    a: "Não. Somos uma aceleradora de negócios. Estruturamos as fundações do seu departamento comercial, inteligência financeira, dados e processos operacionais para dar escala e previsibilidade."
                   },
                   {
                     q: "Como funciona o acompanhamento semanal?",
-                    a: "Estabelecemos uma cadência de reuniões de OKRs (Objectives and Key Results) para guiar o time, monitorar o andamento dos projetos e revisar indicadores semanais em dashboards customizados, removendo achismos do processo decisório."
+                    a: "Estabelecemos reuniões semanais de OKRs (Objectives and Key Results) diretamente com o Stakeholder para monitorar metas comerciais, avaliar campanhas e refinar o ritmo de execução."
                   },
                   {
-                    q: "Qual o tempo de duração da aceleração?",
-                    a: "A estruturação dos pilares e a implementação inicial ocorrem em um formato intensivo de acompanhamento próximo. Os prazos exatos e entregas de governança são validados logo na fase de Diagnóstico Estratégico inicial."
+                    q: "Qual a duração do programa?",
+                    a: "A Aceleração Comercial tem duração contínua de seis meses, onde implementamos o diagnóstico, a estruturação digital, a análise financeira e o modelo operacional."
                   },
                   {
-                    q: "Como é feita a aplicação e seleção para o programa?",
-                    a: "Por trabalharmos lado a lado com os fundadores e estruturarmos processos reais internamente, as vagas são limitadas. A entrada no programa ocorre via aplicação estratégica. Nossa equipe entrará em contato para analisar o fit do seu modelo de negócio."
+                    q: "Como é feita a seleção para o programa?",
+                    a: "Por realizarmos uma entrega próxima e individual de estruturação interna, nossas vagas são limitadas. O ingresso no programa é feito sob aplicação e análise de fit comercial."
                   }
                 ].map((item, idx) => (
                   <AccordionItem
@@ -1037,7 +862,7 @@ function LandingPage() {
 
             <RevealOnScroll delay={200}>
               <p className="mx-auto mt-8 max-w-2xl text-base text-[#bfbfbf] md:text-lg leading-relaxed">
-                Pare de perder margem de lucro e estressar sua operação devido à desorganização. Implemente um modelo replicável de governança, vendas e controle com o time da FA.
+                Pare de ter vendas imprevisíveis e perder margem de lucro. Implemente um modelo replicável de aceleração comercial, controle de dados e finanças com o time da FA.
               </p>
             </RevealOnScroll>
 
@@ -1064,7 +889,7 @@ function LandingPage() {
               </span>
             </div>
             <p className="text-xs text-[#8c8c8c] tracking-wide">
-              © {new Date().getFullYear()} FA. Todos os direitos reservados. Programa Premium de Aceleração Empresarial.
+              © {new Date().getFullYear()} FA. Todos os direitos reservados. Programa Premium de Aceleração Comercial.
             </p>
           </div>
         </footer>
