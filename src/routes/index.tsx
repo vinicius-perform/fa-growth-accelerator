@@ -102,7 +102,7 @@ function RevealOnScroll({ children, delay = 0, className = "" }: { children: Rea
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-1000 ease-out ${
         isIntersecting ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      } ${className}`}
+      } max-lg:!opacity-100 max-lg:!translate-y-0 ${className}`}
     >
       {children}
     </div>
