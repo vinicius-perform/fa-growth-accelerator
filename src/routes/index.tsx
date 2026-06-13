@@ -135,7 +135,6 @@ function SectionLabel({ children, light = false }: { children: React.ReactNode; 
 }
 
 function LandingPage() {
-  const [activeAdvisor, setActiveAdvisor] = useState(0);
 
   const advisors = [
     {
@@ -524,52 +523,16 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* SEÇÃO O CONSELHO FA (ESTILO BOARD EXECUTIVO INTEGRADO - REFERÊNCIA ABSOLUTA) */}
-        <section className="relative py-28 md:py-36 border-b border-white/[0.03] bg-[#050505] overflow-hidden">
+        {/* SEÇÃO BÔNUS EXCLUSIVOS (GRID DE CARD SPOTLIGHT DE SÓCIOS) */}
+        <section className="relative py-24 md:py-32 border-b border-white/[0.03] bg-[#050505] overflow-hidden">
           
-          {/* FOTO DO CONSELHEIRO INTEGRADA AO FUNDO (Sem Colunas / Sem Moldura) */}
-          <div className="absolute right-0 bottom-0 top-0 w-full lg:w-[46%] xl:w-[50%] 2xl:w-[55%] z-0 pointer-events-none select-none hidden lg:block">
-            
-            {/* Letra/Monograma Gigante de Profundidade (Atrás da pessoa, quase invisível) */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 text-white/[0.015] font-black text-[25rem] md:text-[38rem] select-none pointer-events-none leading-none z-0 font-display">
-              FA
-            </div>
-
-            {/* Imagem do Conselheiro com Fade em Degradê Lateral e Inferior */}
-            <img
-              key={activeAdvisor}
-              src={advisors[activeAdvisor].image}
-              alt={advisors[activeAdvisor].name}
-              className={`absolute bottom-0 right-0 w-full h-full object-cover brightness-[0.95] contrast-[1.05] z-10 animate-fade-in-premium ${
-                advisors[activeAdvisor].image.startsWith('/') ? "" : "grayscale"
-              }`}
-              style={{
-                objectPosition: advisors[activeAdvisor].position || 'center 20%'
-              }}
-              loading="lazy"
-            />
-
-            {/* FADE GRADIENTE LATERAL ESQUERDO: Protege o texto à esquerda sem escurecer o rosto na direita */}
-            <div 
-              className="absolute inset-y-0 left-0 w-full z-20 pointer-events-none"
-              style={{
-                background: 'linear-gradient(90deg, #050505 0%, rgba(5,5,5,0.9) 15%, rgba(5,5,5,0.3) 28%, rgba(5,5,5,0) 40%)'
-              }}
-            />
-            
-            {/* FADE GRADIENTE INFERIOR: Suavizando o peito/base da imagem no fundo preto da seção */}
-            <div className="absolute bottom-0 right-0 w-full h-24 bg-gradient-to-t from-[#050505] to-transparent z-20 pointer-events-none" />
-
-            {/* Luz cinematográfica no topo direito */}
-            <div className="absolute top-[10%] right-[8%] h-[300px] w-[300px] rounded-full bg-white/[0.02] blur-3xl pointer-events-none z-20" />
-            <div className="absolute top-[25%] right-[15%] h-1 w-1 rounded-full bg-white shadow-[0_0_12px_6px_rgba(255,255,255,0.3)] pointer-events-none z-20" />
-
-          </div>
-
+          {/* Luzes de fundo cinematográficas */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-full max-w-7xl bg-white/[0.01] blur-[150px] pointer-events-none" />
+          
           <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
             
-            {/* Header da Seção Premium Simplificado */}
-            <div className="mx-auto lg:mx-0 max-w-5xl lg:max-w-[48%] text-center lg:text-left mb-10 md:mb-16 relative z-30">
+            {/* Header da Seção Premium Centralizado */}
+            <div className="mx-auto max-w-3xl text-center mb-16 md:mb-24 relative z-30">
               <RevealOnScroll delay={100}>
                 <SectionLabel>ENTREGAS ADICIONAIS</SectionLabel>
               </RevealOnScroll>
@@ -579,149 +542,92 @@ function LandingPage() {
                 </h2>
               </RevealOnScroll>
               <RevealOnScroll delay={300}>
-                <p className="mx-auto lg:mx-0 mt-4 max-w-xl text-xs md:text-sm text-[#bfbfbf] leading-relaxed">
-                  Além do escopo principal de seis meses, você recebe o direcionamento estratégico dos sócios especialistas da FA.
+                <p className="mx-auto mt-4 max-w-2xl text-xs md:text-sm text-[#bfbfbf] leading-relaxed">
+                  Além do escopo principal de seis meses, você recebe o direcionamento estratégico e mentoria dos sócios especialistas da FA.
                 </p>
               </RevealOnScroll>
             </div>
 
-            {/* Área de composição única */}
-            <div className="relative mx-auto max-w-5xl">
-              
-              {/* Setas Flutuantes nas Extremidades com Borda Fina e Glow Suave */}
-              <button
-                onClick={() => setActiveAdvisor((prev) => (prev === 0 ? advisors.length - 1 : prev - 1))}
-                className="hidden md:flex absolute left-[-65px] top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
-                aria-label="Anterior"
-              >
-                <ArrowLeft className="h-4.5 w-4.5 transition-transform duration-300 group-hover:-translate-x-0.5" />
-              </button>
-              
-              <button
-                onClick={() => setActiveAdvisor((prev) => (prev === advisors.length - 1 ? 0 : prev + 1))}
-                className="hidden md:flex absolute right-[-65px] top-1/2 -translate-y-1/2 h-13 w-13 rounded-full border border-white/10 bg-[#050505]/80 text-white/80 transition-all hover:bg-white/10 hover:border-white/30 hover:text-white cursor-pointer z-30 items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.02)] group active:scale-95 select-none"
-                aria-label="Próximo"
-              >
-                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </button>
+            {/* Grid de Cards dos Conselheiros */}
+            <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+              {advisors.map((advisor, idx) => {
+                const AdvisorIcon = advisor.icon;
+                return (
+                  <RevealOnScroll key={advisor.name} delay={idx * 150}>
+                    <div className="group relative rounded-3xl p-6 bg-gradient-to-b from-[#121212] to-[#080808] border border-white/5 overflow-hidden transition-all duration-500 hover:border-white/15 hover:shadow-[0_30px_60px_rgba(0,0,0,0.8)] hover:-translate-y-2 flex flex-col justify-between h-full">
+                      
+                      {/* Efeito aço escovado sutilíssimo de fundo */}
+                      <div className="absolute inset-0 bg-steel-texture opacity-[0.02] pointer-events-none" />
+                      
+                      {/* Glow de hover sutil por trás do card */}
+                      <div className="absolute -inset-px bg-gradient-to-b from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none z-0" />
+                      
+                      <div className="relative z-10 flex-1">
+                        {/* Imagem do Conselheiro */}
+                        <div className="aspect-[5/4] w-full rounded-2xl overflow-hidden mb-6 border border-white/5 bg-neutral-900 relative">
+                          <img
+                            src={advisor.image}
+                            alt={advisor.name}
+                            className="w-full h-full object-cover transition-all duration-700 ease-out brightness-90 filter grayscale group-hover:grayscale-0 group-hover:brightness-105 group-hover:scale-105"
+                            style={{
+                              objectPosition: advisor.position || 'center 20%'
+                            }}
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent opacity-80" />
+                        </div>
 
-              {/* Grid Invisível para Posicionar o Conteúdo Flutuante */}
-              <div className="grid gap-10 lg:grid-cols-12 min-h-[500px] items-center relative z-20">
-                
-                {/* Bloco de Texto (Ocupa 45% de largura aproximada no desktop) */}
-                <div 
-                  key={activeAdvisor}
-                  className="lg:col-span-5 flex flex-col justify-center order-1 lg:order-1 animate-fade-in-premium"
-                >
-                  {/* Indicador Numérico Spaced */}
-                  <div className="text-xs font-mono text-white/40 uppercase tracking-[0.25em] mb-4">
-                    <span className="text-white font-bold">0{activeAdvisor + 1}</span>
-                    <span className="mx-2 text-white/20">/</span>
-                    <span>0{advisors.length}</span>
-                  </div>
+                        {/* Selo/Badge do Tema */}
+                        <div className="mb-4">
+                          <span className="inline-flex items-center gap-1.5 text-[9px] font-extrabold uppercase tracking-[0.18em] text-[#d4d4d4] bg-white/5 border border-white/10 rounded-full px-3 py-1.5 backdrop-blur-md">
+                            {AdvisorIcon && <AdvisorIcon className="h-3 w-3 text-white/70" />}
+                            {advisor.area}
+                          </span>
+                        </div>
 
-                  {/* Nome do Conselheiro em Caixa Alta Grande */}
-                  <h3 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight uppercase leading-[0.95] mb-5">
-                    {advisors[activeAdvisor].name}
-                  </h3>
+                        {/* Nome do Conselheiro */}
+                        <h3 className="text-xl md:text-2xl font-black text-white tracking-tight uppercase mb-3">
+                          {advisor.name}
+                        </h3>
 
-                  {/* Apresentação da Expertise (Selo de Autoridade) */}
-                  <div className="mb-6">
-                    <div className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30 mb-2">
-                      Tema do Bônus
+                        {/* Descrição Curta */}
+                        <p className="text-xs text-[#a6a6a6] leading-relaxed mb-6 min-h-[48px]">
+                          {advisor.desc}
+                        </p>
+                      </div>
+
+                      {/* Lista de Entregas do Bônus */}
+                      <div className="relative z-10 mt-auto border-t border-white/5 pt-5">
+                        <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/30 mb-3.5 block">Pontos de Contribuição</span>
+                        <ul className="space-y-3">
+                          {advisor.points.map((pt, i) => (
+                            <li key={i} className="flex items-center gap-3 text-xs text-[#d4d4d4]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-white/30 shrink-0 group-hover:bg-white group-hover:shadow-[0_0_8px_rgba(255,255,255,1)] transition-all duration-300" />
+                              <span className="font-medium tracking-wide">{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
+
+                        {/* Assinatura do Conselho */}
+                        <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-[8px] font-bold uppercase tracking-[0.25em] text-white/20 group-hover:text-white/40 transition-colors duration-300">
+                          <span>Sócio Especialista</span>
+                          <span>FA CONSELHO</span>
+                        </div>
+                      </div>
+
                     </div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="inline-flex items-center gap-2.5 text-[10px] md:text-[11px] font-extrabold uppercase tracking-[0.18em] text-white border border-white/15 rounded-full px-5 py-2.5 bg-white/[0.03] shadow-[0_0_20px_rgba(255,255,255,0.03)] backdrop-blur-md">
-                        {(() => {
-                          const AdvisorIcon = advisors[activeAdvisor].icon;
-                          return AdvisorIcon && <AdvisorIcon className="h-3.5 w-3.5 text-white/70 shrink-0" />;
-                        })()}
-                        {advisors[activeAdvisor].area}
-                      </span>
-                    </div>
-                  </div>
+                  </RevealOnScroll>
+                );
+              })}
+            </div>
 
-                  {/* Bloco Curto de Posicionamento de Autoridade */}
-                  <p className="text-[#9e9e9e] text-xs md:text-sm leading-relaxed mb-8 font-medium italic border-l-2 border-white/10 pl-3">
-                    {advisors[activeAdvisor].desc}
-                  </p>
-
-                  {/* Como ajuda */}
-                  <div className="mt-2">
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/30 mb-2.5 block">Como ele pode ajudar</h4>
-                    <p className="text-[#bfbfbf] text-sm md:text-[15px] leading-relaxed font-normal">
-                      {advisors[activeAdvisor].help}
-                    </p>
-                  </div>
-
-                  {/* Pontos principais com linhas divisórias finas */}
-                  <div className="mt-8">
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/30 mb-3.5 block">Pontos Principais de Contribuição</h4>
-                    <ul className="space-y-0 border-t border-white/5">
-                      {advisors[activeAdvisor].points.map((pt, i) => (
-                        <li 
-                          key={i} 
-                          className="flex items-center gap-4 py-3 border-b border-white/5 text-xs md:text-sm text-[#e5e5e5] transition-all duration-300 hover:bg-white/[0.01]"
-                        >
-                          <span className="h-1.5 w-1.5 rounded-full bg-white shrink-0 shadow-[0_0_8px_rgba(255,255,255,1)]" />
-                          <span className="font-medium tracking-wide">{pt}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                </div>
-
-                {/* Imagem do Conselheiro no Mobile (Sem Gradiente, na parte inferior) */}
-                <div
-                  key={`img-mobile-${activeAdvisor}`}
-                  className="block lg:hidden order-2 w-full h-auto min-h-0 overflow-visible bg-[#050505] pointer-events-none select-none"
-                >
-                  <img
-                    src={advisors[activeAdvisor].image}
-                    alt={advisors[activeAdvisor].name}
-                    className="block w-full h-auto max-w-full object-contain transform-none"
-                    style={{
-                      aspectRatio: '16 / 9',
-                      objectPosition: advisors[activeAdvisor].mobilePosition || 'center top'
-                    }}
-                    loading="lazy"
-                  />
-                </div>
-
-                {/* Coluna de Preenchimento para manter o respiro no Desktop */}
-                <div className="hidden lg:block lg:col-span-7 lg:order-2 pointer-events-none" />
-
-              </div>
-
-              {/* Controles de Rodapé */}
-              <div className="mt-20 flex flex-col items-center gap-8 relative z-30">
-                
-                {/* Dots (Pills dinâmicos) */}
-                <div className="flex gap-2.5">
-                  {advisors.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setActiveAdvisor(i)}
-                      className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        i === activeAdvisor ? "w-6 bg-white" : "w-1.5 bg-white/20"
-                      }`}
-                      aria-label={`Ir para conselheiro ${i + 1}`}
-                    />
-                  ))}
-                </div>
-
-                {/* Frase Enclausurada por Linhas Gradientes */}
-                <div className="flex items-center gap-6 justify-center w-full max-w-2xl mx-auto mt-2 px-4">
-                  <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                  <p className="text-xs md:text-sm text-white/40 tracking-wide text-center max-w-lg md:shrink-0 leading-relaxed">
-                    “Cada bônus foi desenhado para atuar em uma alavanca crítica de gestão, eficiência e estabilidade executiva.”
-                  </p>
-                  <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
-                </div>
-
-              </div>
-
+            {/* Frase Enclausurada de Rodapé */}
+            <div className="mt-20 flex items-center gap-6 justify-center w-full max-w-2xl mx-auto px-4 relative z-20">
+              <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
+              <p className="text-xs text-white/40 tracking-wide text-center max-w-lg leading-relaxed">
+                “Cada bônus foi desenhado para atuar em uma alavanca crítica de gestão, eficiência e estabilidade executiva.”
+              </p>
+              <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
             </div>
 
           </div>
