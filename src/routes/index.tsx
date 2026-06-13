@@ -665,11 +665,11 @@ function LandingPage() {
                   <div className="text-xs font-bold uppercase tracking-[0.3em] text-[#a6a6a6] mb-3">Aceleração Comercial Premium — 6 Meses</div>
                   
                   <div className="text-5xl font-black leading-none text-white md:text-7xl tracking-tighter text-shine">
-                    6x de R$ 5.000
+                    6x de R$ 3.000
                   </div>
                   
                   <div className="mt-4 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-[#bfbfbf] flex items-center justify-center gap-2">
-                    <span>OU R$ 30.000 À VISTA</span>
+                    <span>OU R$ 15.000 À VISTA</span>
                   </div>
                 </div>
               </div>
