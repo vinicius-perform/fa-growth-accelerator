@@ -148,7 +148,7 @@ function LandingPage() {
         "Alta performance executiva"
       ],
       image: "/phc.webp",
-      position: "70% 15%",
+      position: "center 15%",
       mobilePosition: "50% 20%",
       icon: Brain
     },
@@ -163,7 +163,7 @@ function LandingPage() {
         "Menos dependência do fundador"
       ],
       image: "/paulof.webp",
-      position: "75% 20%",
+      position: "center 18%",
       mobilePosition: "50% 18%",
       icon: Layers
     },
@@ -178,7 +178,7 @@ function LandingPage() {
         "Proteção e ganho de margem de lucro"
       ],
       image: "/lemuel2.webp",
-      position: "62% 20%",
+      position: "center 20%",
       mobilePosition: "50% 20%",
       icon: TrendingDown
     }
@@ -568,7 +568,7 @@ function LandingPage() {
                           <img
                             src={advisor.image}
                             alt={advisor.name}
-                            className="w-full h-full object-cover transition-all duration-700 ease-out brightness-90 filter grayscale group-hover:grayscale-0 group-hover:brightness-105 group-hover:scale-105"
+                            className="w-full h-full object-cover transition-all duration-700 ease-out brightness-95 group-hover:brightness-100 group-hover:scale-105"
                             style={{
                               objectPosition: advisor.position || 'center 20%'
                             }}
