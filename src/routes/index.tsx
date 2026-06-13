@@ -252,29 +252,18 @@ function LandingPage() {
 
               </div>
 
-              {/* Imagem de Fundo (Apenas Mobile - Posicionada ABAIXO do texto, ocupando 100vw sem card) */}
-              <RevealOnScroll delay={450} className="w-full lg:hidden">
-                <div 
-                  className="relative select-none mt-8 overflow-hidden"
-                  style={{
-                    width: '100vw',
-                    marginLeft: 'calc(50% - 50vw)',
-                    marginRight: 'calc(50% - 50vw)',
-                  }}
-                >
-                  {/* Gradiente suave na junção superior da imagem com o texto escuro */}
-                  <div className="absolute top-0 inset-x-0 h-20 bg-gradient-to-b from-[#050505] via-[#050505]/60 to-transparent z-10 pointer-events-none" />
-                  
+              {/* Imagem de Fundo (Apenas Mobile - Card Premium Estilizado) */}
+              <RevealOnScroll delay={450} className="w-full lg:hidden mt-8">
+                <div className="relative select-none overflow-hidden rounded-3xl border border-white/5 shadow-[0_15px_40px_rgba(0,0,0,0.6)]">
                   <img
                     src="/bg.webp"
                     alt="Fundo Executivo Mobile"
-                    className="w-full min-h-[420px] h-[420px] object-cover object-[68%_top] brightness-[0.88] contrast-[1.03]"
+                    className="w-full h-[280px] object-cover object-[68%_center] brightness-[0.85] contrast-[1.03]"
                     loading="eager"
                     fetchPriority="high"
                   />
-                  
-                  {/* Gradiente na base da imagem para fusão com a próxima seção */}
-                  <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-[#050505] to-transparent z-10 pointer-events-none" />
+                  {/* Gradiente de fusão sutil */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/95 via-[#050505]/10 to-transparent pointer-events-none" />
                 </div>
               </RevealOnScroll>
             </div>
@@ -723,12 +712,12 @@ function LandingPage() {
                 </div>
 
                 {/* Frase Enclausurada por Linhas Gradientes */}
-                <div className="flex items-center gap-6 justify-center w-full max-w-2xl mx-auto mt-2">
-                  <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
-                  <p className="text-xs md:text-sm text-white/40 tracking-wide text-center shrink-0">
+                <div className="flex items-center gap-6 justify-center w-full max-w-2xl mx-auto mt-2 px-4">
+                  <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/10" />
+                  <p className="text-xs md:text-sm text-white/40 tracking-wide text-center max-w-lg md:shrink-0 leading-relaxed">
                     “Cada bônus foi desenhado para atuar em uma alavanca crítica de gestão, eficiência e estabilidade executiva.”
                   </p>
-                  <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
+                  <div className="hidden md:block h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/10" />
                 </div>
 
               </div>
