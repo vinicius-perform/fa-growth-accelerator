@@ -54,17 +54,28 @@ export const Route = createFileRoute("/")({
 
 const WHATSAPP = "https://wa.link/ythgg5";
 
-// Hook/Componente de Reveal ao Scroll
+// Hook/Componente de Reveal ao Scroll (Seguro contra erros de suporte e hydration)
 function RevealOnScroll({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const [isIntersecting, setIsIntersecting] = useState(false);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    // Fallback caso o IntersectionObserver não seja suportado no browser
+    if (!('IntersectionObserver' in window)) {
+      setIsIntersecting(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        const entry = entries[0];
+        if (entry && entry.isIntersecting) {
           setIsIntersecting(true);
-          observer.unobserve(entry.target);
+          if (ref.current) {
+            observer.unobserve(ref.current);
+          }
         }
       },
       { threshold: 0.05 }
